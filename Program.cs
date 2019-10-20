@@ -29,8 +29,8 @@ namespace pomodoro.net
 
     class Timer
     {
-        private static int workPeriod = 1500;
-        private static int breakPeriod = 300;
+        private static int workPeriod = 45*60;
+        private static int breakPeriod = 15*60;
         public static void Work()
         {
             var secondsLeft = workPeriod;
@@ -81,7 +81,7 @@ namespace pomodoro.net
                     if (pauseDate.Value.AddSeconds(60) < DateTime.Now)
                     {
                         System.Diagnostics.Process.Start("kdialog", "--title 'Pomodoro.NET' --passivepopup 'Timer is paused too long. Are you still alive there?' 15");
-                        System.Diagnostics.Process.Start("x-www-browser", "'data:text/html,<h1>Pomodoro.NET waiting YOU to start next time segment!</h1>'");
+                        System.Diagnostics.Process.Start("x-www-browser", "\"data:text/html,<h1>Pomodoro.NET waiting YOU to start next time segment!</h1>\"");
                     }
                 }
                 System.Threading.Thread.Sleep(60000);
